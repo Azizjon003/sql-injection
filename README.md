@@ -98,20 +98,39 @@ When `logToFile` is enabled, SQL Shield logs all detected attacks to the specifi
 
 ### Telegram Alerts
 
-To receive alerts via Telegram:
+SQL Shield provides rich Telegram notifications with formatted messages and detailed attack information. To set up Telegram alerts:
 
-1. Create a Telegram bot using BotFather and get the token
-2. Get your chat ID
-3. Configure the middleware:
+1. Create a Telegram bot:
+
+   - Open Telegram and search for [@BotFather](https://t.me/BotFather)
+   - Send the command `/newbot` and follow instructions
+   - After creating the bot, BotFather will give you a token (e.g., `123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ`)
+
+2. Get your chat ID:
+
+   - Start a chat with your new bot
+   - Start a chat with [@userinfobot](https://t.me/userinfobot) to get your chat ID
+   - The chat ID will be a number (e.g., `123456789`)
+
+3. Configure SQL Shield with your bot token and chat ID:
 
 ```javascript
 app.use(
   sqlShield({
-    telegramBotToken: "your-bot-token",
-    telegramChatId: "your-chat-id",
+    telegramBotToken: "123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ", // Your bot token
+    telegramChatId: "123456789", // Your chat ID
   })
 );
 ```
+
+The Telegram alerts include:
+
+- Attack details (URL, IP address, method)
+- Timestamp
+- Formatted input data
+- Recommendations for handling the attack
+
+You can find a complete example in `examples/telegram-alert-example.js`.
 
 ### Custom Webhook
 
