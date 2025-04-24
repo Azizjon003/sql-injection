@@ -1,0 +1,100 @@
+{
+  "rules": [
+    {
+      "id": "SQLI-001",
+      "name": "SQL Comment Detection",
+      "description": "Detects SQL comments that might be used to bypass filters",
+      "pattern": "--.*|#.*|/\\*.*\\*/",
+      "flags": "i",
+      "severity": "medium"
+    },
+    {
+      "id": "SQLI-002",
+      "name": "UNION-based SQL Injection",
+      "description": "Detects UNION-based SQL injection attempts",
+      "pattern": "\\bunion\\s+(?:all\\s+)?select\\b",
+      "flags": "i",
+      "severity": "high"
+    },
+    {
+      "id": "SQLI-003",
+      "name": "Boolean-based SQL Injection",
+      "description": "Detects boolean-based SQL injection attempts",
+      "pattern": "\\b(and|or)\\s+\\d+=\\d+",
+      "flags": "i",
+      "severity": "high"
+    },
+    {
+      "id": "SQLI-004",
+      "name": "Error-based SQL Injection",
+      "description": "Detects error-based SQL injection attempts",
+      "pattern": "\\b(convert|cast)\\b|\\bwaitfor\\s+delay\\b",
+      "flags": "i",
+      "severity": "high"
+    },
+    {
+      "id": "SQLI-005",
+      "name": "Time-based SQL Injection",
+      "description": "Detects time-based SQL injection attempts",
+      "pattern": "\\bwaitfor\\s+delay\\b|\\bsleep\\(\\s*\\d+\\s*\\)|\\bbenchmark\\(",
+      "flags": "i",
+      "severity": "high"
+    },
+    {
+      "id": "SQLI-006",
+      "name": "SQL Authentication Bypass",
+      "description": "Detects SQL authentication bypass attempts",
+      "pattern": "\\bor\\s+['\"\\d]\\s*=\\s*['\"\\d]|\\bor\\s+1\\s*=\\s*1|\\bor\\s+'[^']*'\\s*=\\s*'[^']*'|\\bor\\s+\"[^\"]*\"\\s*=\\s*\"[^\"]*\"",
+      "flags": "i",
+      "severity": "critical"
+    },
+    {
+      "id": "SQLI-007",
+      "name": "SQL Batch Execution",
+      "description": "Detects SQL batch execution attempts",
+      "pattern": ";\\s*\\b(select|insert|update|delete|drop|alter|create|exec|execute)\\b",
+      "flags": "i",
+      "severity": "critical"
+    },
+    {
+      "id": "SQLI-008",
+      "name": "Database Schema Discovery",
+      "description": "Detects attempts to discover database schema",
+      "pattern": "\\binformation_schema\\b|\\bsys\\.\\w+\\b|\\bsyscolumns\\b|\\bsysobjects\\b",
+      "flags": "i",
+      "severity": "medium"
+    },
+    {
+      "id": "SQLI-009",
+      "name": "Stored Procedure Execution",
+      "description": "Detects attempts to execute stored procedures",
+      "pattern": "\\bexec\\s+\\w+|\\bexecute\\s+\\w+|\\bsp_\\w+|\\bxp_\\w+",
+      "flags": "i",
+      "severity": "high"
+    },
+    {
+      "id": "SQLI-010",
+      "name": "SQL Function Calls",
+      "description": "Detects suspicious SQL function calls",
+      "pattern": "\\b(char|nchar|varchar|nvarchar)\\b.*\\b(SELECT|;)\\b|\\b(concat|group_concat|concat_ws)\\s*\\(",
+      "flags": "i",
+      "severity": "medium"
+    },
+    {
+      "id": "SQLI-011",
+      "name": "Stacked Queries",
+      "description": "Detects stacked SQL queries with multiple statements",
+      "pattern": ";\\s*(?:--.*)?$",
+      "flags": "i",
+      "severity": "high"
+    },
+    {
+      "id": "SQLI-012",
+      "name": "Classic SQL Injection",
+      "description": "Detects classic SQL injection patterns",
+      "pattern": "'\\s*or\\s*'\\s*'\\s*=\\s*'|\"\\s*or\\s*\"\\s*\"\\s*=\\s*\"|'\\s*or\\s*[\\d]+\\s*=\\s*[\\d]+",
+      "flags": "i",
+      "severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "@sqlshield/express-middleware",
+  "version": "1.0.0",
+  "description": "Express.js middleware for detecting SQL injection attacks",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "sql",
+    "injection",
+    "security",
+    "detection",
+    "express",
+    "middleware",
+    "sqlshield"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "eslint": "^8.56.0",
+    "supertest": "^6.3.3"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/sqlshield-express-middleware.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/sqlshield-express-middleware/issues"
+  },
+  "homepage": "https://github.com/yourusername/sqlshield-express-middleware#readme"
+}
