@@ -1,6 +1,6 @@
 {
   "name": "@sqlshield/express-middleware",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Express.js middleware for detecting SQL injection attacks",
   "main": "index.js",
   "scripts": {
